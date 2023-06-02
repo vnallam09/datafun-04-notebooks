@@ -35,8 +35,8 @@ We may execute scripts (.py) and notebooks (.ipynb) from the command line,
 but we want to run them VS Code (or other editor) to get the 
 benefits of autocompletion, formatting, git integration, and more. 
 
-When opening these new external files in your exissting VS Code Python environment, 
-you may find that it reverts back to a standard Python interpereter (maybe 3.9 when we're using 3.11). 
+When opening these new external files in your existing VS Code Python environment, 
+you may find that it reverts back to a standard Python interpreter (maybe 3.9 when we're using 3.11). 
 Use the steps above to set your Python interpreter, and restart VS Code.
 
 You can also use the kernel selection in the upper right that comes with the VS Code Jupyter extension. 
@@ -45,7 +45,7 @@ More information is available here [Jupyter Notebooks in VS Code](https://code.v
 
 ## Install Additional Modules
 
-Python comes with a large Python Standard Libary, but we often 
+Python comes with a large Python Standard Library, but we often 
 want additional classes, modules, and packages for even
 more functionality. 
 
@@ -80,13 +80,3 @@ To work with all the textbook examples, you'll need the following installed in y
 - textatistic - readability metrics
 - textblob - text processing
 - wordcloud - visualize frequency of text
-
-## Installing Dependencies Using pyproject.toml
-
-These dependencies are listed in the project pyproject.toml file for convenience.
-
-Rather than installing one at a time, you can install all required dependencies at once by running the following command from the project folder.
-
-```shell
-python -m pip install -e .
-```

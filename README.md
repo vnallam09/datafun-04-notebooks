@@ -45,7 +45,7 @@ When starting a new project, there are some common files you should add to the p
 
 -----
 
-## Step 4: Set up a Virtual Enviroment
+## Step 4: Set up a Virtual Environment
 
 Next, we'll create and activate a virtual environment specifically for this project. We'll also install additional packages required for this project.
 
@@ -89,7 +89,7 @@ Alternatively, you can install all the packages listed in the requirements.txt f
 python -m pip install --upgrade -r requirements.txt
 ```
 
-Note: The `--upgrade` parameter gets the lastest version of each package.
+Note: The `--upgrade` parameter gets the latest version of each package.
 
 -----
 
@@ -101,9 +101,6 @@ In the active virtual environment, create a Python kernel to run our notebooks.
 python -m ipykernel install --user --name .venv --display-name "Python (.venv)"
 ```
 
-### Execute an existing notebook
-
-
 ### Create a new notebook
 
 In VS Code, from the menu, select View / Command Palette.
@@ -111,5 +108,12 @@ Type `notebook` and select `Jupyter: Create New Blank Notebook`.
 This will create a new notebook in the project folder.
 Save the notebook with a name like `yourname-notebook.ipynb`.
 
+
+-----
+If you've created the .venv virtual environment,  installed the necessary packages, 
+and selected a Kernel for your Jupyter Notebook, it should run - 
+even if the code shows a missing package error. See the image below.
+
+![Check Kernel and .venv. VS Code may show an issue, but may still work](images/VSCode-SelectKernel-AndInstallPkgs-Then-It-Should-Run-Even-With-NotFound-Issue.PNG)
 
 
