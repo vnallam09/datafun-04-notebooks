@@ -86,7 +86,7 @@ python -m pip install --upgrade voila
 Alternatively, you can install all the packages listed in the requirements.txt file.
 
 ```shell
-python -m pip install --upgrade -r requirements.txt
+pip install -r requirements.txt
 ```
 
 Note: The `--upgrade` parameter gets the latest version of each package.
