@@ -80,7 +80,6 @@ The packages pandas, matplotlib, and seaborn are used to work with data and char
 ```shell
 python -m pip install --upgrade pip ipykernel jupyterlab
 python -m pip install --upgrade pandas matplotlib seaborn
-python -m pip install --upgrade voila
 ```
 
 Alternatively, you can install all the packages listed in the requirements.txt file.
