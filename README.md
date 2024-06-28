@@ -41,7 +41,7 @@ When starting a new project, there are some common files you should add to the p
 - The requirements.txt file lists the packages used in the project.
 - You may not use all them and may want to add others. Modify this list as you like. 
 
-🚀 Rocket Tip: When employers ask for years of experience with a language, it's not the syntax - that's learned in a few days. It's the experience with the tools, libraries, and frameworks that takes time.
+When employers ask for years of experience with a language, it's not the syntax - that's learned in a few days. It's the experience with the tools, libraries, and frameworks that takes time.
 
 -----
 
@@ -60,7 +60,7 @@ python -m venv .venv
 
 Verify that a new `.venv` folder was created. It may take a while for the command to complete.
 
-🚀 Rocket Tip: When VS Code Python Extension offers to select the Environment, say Yes.
+When VS Code Python Extension offers to select the Environment, say Yes.
 
 ### Activate the Virtual Environment
 
@@ -69,7 +69,7 @@ Wait for the creation to finish, then **activate** the virtual environment:
 - For PowerShell: `.venv\Scripts\Activate`
 - For macOS/Linux:  `source .venv/bin/`
 
-🚀 Rocket Tip: Notice the terminal changes to reflect the active virtual environment.
+Notice the terminal changes to reflect the active virtual environment.
 
 ### Install Dependencies to the Active Virtual Environment
 
@@ -85,14 +85,14 @@ python -m pip install --upgrade pandas matplotlib seaborn
 Alternatively, you can install all the packages listed in the requirements.txt file.
 
 ```shell
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 Note: The `--upgrade` parameter gets the latest version of each package.
 
 -----
 
-## Step 5: Working with Notebooks
+## Step 5: Create a Notebook and Set the Kernel
 
 In the active virtual environment, create a Python kernel to run our notebooks. 
 
@@ -100,19 +100,68 @@ In the active virtual environment, create a Python kernel to run our notebooks.
 python -m ipykernel install --user --name .venv --display-name "Python (.venv)"
 ```
 
-### Create a new notebook
+### 5.1 Create a new notebook
 
 In VS Code, from the menu, select View / Command Palette.
+
 Type `notebook` and select `Jupyter: Create New Blank Notebook`.
 This will create a new notebook in the project folder.
+
 Save the notebook with a name like `yourname-notebook.ipynb`.
 
 
+### 5.2 Select the virtual environment for the notebook kernel
+
+In VS Code, from the menu, select View > Command Palette.
+
+Type kernel and select Notebook: Select Notebook Kernel.
+Choose the kernel named "Python (.venv)" from the list.
+
+This ensures your notebook uses the packages installed in your virtual environment.
+
 -----
+
+## Troubleshooting
+
 If you've created the .venv virtual environment,  installed the necessary packages, 
 and selected a Kernel for your Jupyter Notebook, it should run - 
 even if the code shows a missing package error. See the image below.
 
 ![Check Kernel and .venv. VS Code may show an issue, but may still work](images/VSCode-SelectKernel-AndInstallPkgs-Then-It-Should-Run-Even-With-NotFound-Issue.PNG)
 
+Why Your Notebook May Still Not See a Package
 
+If the Jupyter notebook kernel is not set to the same environment where you installed the package, the package won't be found. This can happen if:
+
+- The terminal in VS Code is pointed to one virtual environment, but the Jupyter kernel is using another. This can occur if you have multiple virtual environments and accidentally select the wrong one for your Jupyter notebook.
+- Even if you try to manually point the kernel to the right environment, there might be path conflicts or misconfigurations that prevent the notebook from recognizing the installed packages.
+
+### Recommendations
+
+Recommendation 1: Keep Virtual Environment and Kernel Aligned
+
+The environment where the Jupyter server runs (where a !pip install in your notebook would install packages) might differ from the environment where the notebook kernel runs. 
+This can lead to scenarios where a package appears installed in the terminal but isn't accessible within the notebook.
+Whenever you create a new virtual environment and want to use it with Jupyter notebooks, you need to install ipykernel and your necessary packages in that environment.
+
+Recommendation 2: Use Magic Commands (Jupyter commands use %)
+
+Once your project virtual environment and kernel are aligned, if you still have issues, then use magic commands. 
+Magic commands are interpreted by the IPython kernel and provide a way to interact with the underlying Python environment directly. 
+Using %pip install ensures that the package is installed in the same environment as the notebook kernel. 
+To use a magic command, in your Jupyter Notebook, add a Python cell with the following command:
+
+```python
+%pip install scikit-learn
+```
+
+Note that we don't use the leading py -m that we do when running Python utility commands (pip, venv, etc.) in the terminal. 
+
+Virtual environments are recommended to ensure isolation and reproducibility of your project's dependencies. 
+If you encounter issues with virtual environments and need to install packages directly within a notebook, using magic commands is a reliable alternative.
+
+Avoid: Shell Commands for Installs (Shell Commands use !)
+
+Don't use !pip install (with an exclamation instead of percent). 
+This is a shell command, which means it runs in the shell environment of the system where the Jupyter server is running. 
+While it can work, it might not install the package in the same environment that the notebook kernel is using, especially in environments with multiple Python installations or virtual environments.
