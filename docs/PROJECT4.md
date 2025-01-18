@@ -9,9 +9,9 @@ Follow the steps below.
 ## Step 1: Start Project, Open in VS Code
 
 Start a project as usual. 
-1. Create a repo in GitHub with a default README.md. 
-2. Clone the repo down to a Projects folder on your machine. 
-3. Open your new project repository in VS Code.
+1. Create a repo in GitHub with a default README.md. Name the repo **datafun-04-eda**. 
+2. Clone your new repo down to the Projects folder on your machine. 
+3. Open your new project repository folder in VS Code.
 
 ---
 
@@ -68,7 +68,8 @@ In VS Code, from the menu, select View / Command Palette.
 Type `notebook` and select `Jupyter: Create New Blank Notebook`.
 This will create a new notebook in the project folder.
 
-Save the notebook with a name like `yourname-notebook.ipynb`.
+Save the notebook with a name like `yourname-eda.ipynb`.
+The file extension must be exact.
 
 ### Create a kernel from .venv
 
