@@ -67,13 +67,13 @@ def main():
     # Chart 1 - Scatter Plot
     print("Creating Chart 1: Scatter Plot...")
     penguins_df = sns.load_dataset("penguins")
-    fig1 = plot_scatter_plot(penguins_df)
+    _ = plot_scatter_plot(penguins_df)
 
     # Chart 2 - Bar Chart
     print("Creating Chart 2: Bar Chart...")
     sales_data_dict = {"Category": ["A", "B", "C"], "Sales": [200, 150, 300]}
     sales_df = pd.DataFrame(sales_data_dict)
-    fig2 = plot_bar_chart(sales_df)
+    _ = plot_bar_chart(sales_df)
 
     # Display static charts together
     print("Displaying static charts...")
