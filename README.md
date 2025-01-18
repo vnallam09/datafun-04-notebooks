@@ -10,9 +10,11 @@ It's the experience with the tools, libraries, and frameworks that takes time.
 
 ## Step 1: Start Project, Open in VS Code
 
-Start a project as usual. Create a repo in GitHub with a default README.md. 
-Clone the repo down to a Projects folder on your machine. 
-Open your new project repository in VS Code.
+Start a project as usual. 
+1. Create a repo in GitHub with a default README.md. 
+2. Clone the repo down to a Projects folder on your machine. 
+3. Open your new project repository in VS Code.
+
 ---
 
 ## Step 2: Add/Update Critical Files
@@ -56,7 +58,7 @@ See [requirements.txt](requirements.txt) for detailed instructions.
 2. Activate .venv
 3. Install dependencies into .venv
 
------
+---
 
 ## Step 4: Create a Jupyter Notebook and Create/Set Kernel
 
@@ -102,7 +104,9 @@ If you've created the .venv virtual environment,  installed the necessary packag
 and selected a Kernel for your Jupyter Notebook, it should run - 
 even if the code shows a missing package error. See the image below.
 
-![Check Kernel and .venv. VS Code may show an issue, but may still work](images/VSCode-SelectKernel-AndInstallPkgs-Then-It-Should-Run-Even-With-NotFound-Issue.PNG)
+Check Kernel and .venv. VS Code may show an issue, but may still work.
+Sometimes closing and reopening the notebook file is helpful. 
+Make sure your .venv is active and the kernel is selected. 
 
 Why Your Notebook May Still Not See a Package
 
