@@ -1,106 +1,66 @@
 # Introduction to Jupyter Notebooks in VS Code
 
-- [GitHub Repository](https://github.com/denisecase/datafun-04-notebooks/)
+> datafun-04-notebooks
 
-Jupyter Notebooks are a popular way to create and share documents for data analytics. They are interactive, easy to share, and support a wide variety of data science tools.
+Jupyter Notebooks are a popular way to create and share documents for data analytics. 
+They are interactive, easy to share, and support a wide variety of data science tools.
 
-## Step 1: Open The Project Folder
+When employers ask for years of experience with a language, it's not the syntax - that can be learned in a few days. 
+It's the experience with the tools, libraries, and frameworks that takes time.
 
-Open VS Code and clone your `datafun-04-notebooks` repository to your machine.
+## Step 1: Start Project, Open in VS Code
 
-## Step 2: Update Default Python
+Start a project as usual. Create a repo in GitHub with a default README.md. 
+Clone the repo down to a Projects folder on your machine. 
+Open your new project repository in VS Code.
+---
 
-Open a terminal in VS Code. Use the menu View / Terminal. 
-In Windows, use PowerShell, in Mac, use bash.
-Verify you've added some essential packages to your default Python environment.
+## Step 2: Add/Update Critical Files
 
-```shell
-python -m pip install --upgrade pip ipykernel jupyterlab
-python -m pip install --upgrade black ruff
-```
+With your new project repo folder open in VS Code, add/update critical project files at the start of every project. 
 
-Note: If `py` or `python3` works on your machine, use that instead of `python` in the commands.
-
------
-
-## Step 3: Add Common Files
-
-When starting a new project, there are some common files you should add to the project folder.
-
-### Add .gitignore
+### Add/Add .gitignore
 
 - The .gitignore file tells Git files to ignore when committing changes.
-- Review the [gitignore](gitignore) file, you can use it without modification.
+- Review/copy the example [.gitignore](https://github.com/denisecase/datafun-04-notebooks/blob/main/.gitignore) file, you can use it without modification.
 
-### Modify README.md
-
-- Learn to edit and customize README.md files, which provide a quick overview of the project and instructions for running it. 
-
-### Scan requirements.txt
+### Add/Update requirements.txt
 
 - The requirements.txt file lists the packages used in the project.
-- You may not use all them and may want to add others. Modify this list as you like. 
+- Review/copy the example [requirements.txt](https://github.com/denisecase/datafun-04-notebooks/blob/main/requirements.txt) file, you can use it without modification.
+- You may not use all the listed packages - and may want to add others. Modify the requirements.txt as needed.
 
-When employers ask for years of experience with a language, it's not the syntax - that's learned in a few days. It's the experience with the tools, libraries, and frameworks that takes time.
+### Update README.md
+
+- Edit and customize your README.md to provide an overview of the project and instructions for running it. 
+
+### Git add-commit-push
+
+After adding .gitignore (or any other key file), run git add, commit, and push to commit your changes to GitHub. 
+
+```shell
+git add .
+git commit -m "Add .gitignore"
+git push -u origin main
+```
+
+---
+
+## Step 3: Set up Virtual Environment
+
+Next, create and activate a virtual environment for this project. 
+Also install additional dependencies required for this project.
+See [requirements.txt](requirements.txt) for detailed instructions. 
+
+1. Create .venv
+2. Activate .venv
+3. Install dependencies into .venv
 
 -----
 
-## Step 4: Set up a Virtual Environment
+## Step 4: Create a Jupyter Notebook and Create/Set Kernel
 
-Next, we'll create and activate a virtual environment specifically for this project. We'll also install additional packages required for this project.
-
-### Create a Virtual Environment
-
-1. Open the terminal in VS Code. (View / Terminal)
-2. Run the following command to **create** a virtual environment for this project.
-
-```shell
-python -m venv .venv
-```
-
-Verify that a new `.venv` folder was created. It may take a while for the command to complete.
-
-When VS Code Python Extension offers to select the Environment, say Yes.
-
-### Activate the Virtual Environment
-
-Wait for the creation to finish, then **activate** the virtual environment:
-
-- For PowerShell: `.venv\Scripts\Activate`
-- For macOS/Linux:  `source .venv/bin/`
-
-Notice the terminal changes to reflect the active virtual environment.
-
-### Install Dependencies to the Active Virtual Environment
-
-Install additional project dependencies into the active virtual environment.
-The packages ipykernel and jupyterlab are required to run a notebook.
-The packages pandas, matplotlib, and seaborn are used to work with data and charts.
-
-```shell
-python -m pip install --upgrade pip ipykernel jupyterlab
-python -m pip install --upgrade pandas matplotlib seaborn
-```
-
-Alternatively, you can install all the packages listed in the requirements.txt file.
-
-```shell
-python -m pip install -r requirements.txt
-```
-
-Note: The `--upgrade` parameter gets the latest version of each package.
-
------
-
-## Step 5: Create a Notebook and Set the Kernel
-
-In the active virtual environment, create a Python kernel to run our notebooks. 
-
-```shell
-python -m ipykernel install --user --name .venv --display-name "Python (.venv)"
-```
-
-### 5.1 Create a new notebook
+### Create a new notebook
 
 In VS Code, from the menu, select View / Command Palette.
 
@@ -109,17 +69,32 @@ This will create a new notebook in the project folder.
 
 Save the notebook with a name like `yourname-notebook.ipynb`.
 
+### Create a kernel from .venv
 
-### 5.2 Select the virtual environment for the notebook kernel
+In the active virtual environment, create a Python kernel to run our notebooks. 
+The following command registers the .venv virtual environment as a kernel, making it accessible in Jupyter.
+Use python3 if Mac/Linux.
 
-In VS Code, from the menu, select View > Command Palette.
+```shell
+py -m ipykernel install --user --name .venv --display-name "Python (.venv)"
+```
 
-Type kernel and select Notebook: Select Notebook Kernel.
-Choose the kernel named "Python (.venv)" from the list.
+Verify the .venv entry appears:
+
+```shell
+jupyter kernelspec list
+```
+
+### Select the virtual environment for the notebook kernel
+
+In VS Code, select your notebook. 
+Then, from the menu, select View > Command Palette.
+Type Notebook: Select Notebook Kernel.
+Choose the kernel with our local "Python (.venv)" from the list.
 
 This ensures your notebook uses the packages installed in your virtual environment.
 
------
+---
 
 ## Troubleshooting
 
@@ -138,21 +113,21 @@ If the Jupyter notebook kernel is not set to the same environment where you inst
 
 ### Recommendations
 
-Recommendation 1: Keep Virtual Environment and Kernel Aligned
+#### Recommendation 1: Keep Virtual Environment and Kernel Aligned
 
 The environment where the Jupyter server runs (where a !pip install in your notebook would install packages) might differ from the environment where the notebook kernel runs. 
 This can lead to scenarios where a package appears installed in the terminal but isn't accessible within the notebook.
 Whenever you create a new virtual environment and want to use it with Jupyter notebooks, you need to install ipykernel and your necessary packages in that environment.
 
-Recommendation 2: Use Magic Commands (Jupyter commands use %)
+#### Recommendation 2: Use Magic Commands (Jupyter commands use %)
 
 Once your project virtual environment and kernel are aligned, if you still have issues, then use magic commands. 
 Magic commands are interpreted by the IPython kernel and provide a way to interact with the underlying Python environment directly. 
 Using %pip install ensures that the package is installed in the same environment as the notebook kernel. 
-To use a magic command, in your Jupyter Notebook, add a Python cell with the following command:
+To use a magic command, in your Jupyter Notebook, add a Python cell with the install command, for example:
 
 ```python
-%pip install scikit-learn
+%pip install pandas
 ```
 
 Note that we don't use the leading py -m that we do when running Python utility commands (pip, venv, etc.) in the terminal. 
@@ -160,8 +135,49 @@ Note that we don't use the leading py -m that we do when running Python utility 
 Virtual environments are recommended to ensure isolation and reproducibility of your project's dependencies. 
 If you encounter issues with virtual environments and need to install packages directly within a notebook, using magic commands is a reliable alternative.
 
-Avoid: Shell Commands for Installs (Shell Commands use !)
+#### Avoid: Shell Commands for Installs (Shell Commands use !)
 
 Don't use !pip install (with an exclamation instead of percent). 
 This is a shell command, which means it runs in the shell environment of the system where the Jupyter server is running. 
 While it can work, it might not install the package in the same environment that the notebook kernel is using, especially in environments with multiple Python installations or virtual environments.
+
+
+---
+
+## Optional: Explore More
+
+### Numpy and pandas
+
+These are key libraries for data analysis. 
+Pandas is built on NumPy arrays. 
+Pandas has some new competitors in big data - you might check out polars. 
+
+### Matplotlib
+
+Matplotlib is the core plotting library for Python. 
+If you enjoy data visualization and want to excel, spend some time understanding this key library. 
+
+### Seaborn Charts
+
+Do a search for Seaborn Gallery to see examples of charts you can create with Seaborn.
+Seaborn is a Python data visualization library based on matplotlib. 
+It provides a high-level interface for drawing attractive and informative statistical graphics.
+
+### Creating Interactive Widgets with ipywidgets
+
+Learn more about adding interactivity to your notebooks with https://ipywidgets.readthedocs.io/.
+
+### More Helpful Resources
+We'll introduce a lot of powerful tools. Find the ones that interest you and explore them further.
+- [Project Jupyter](https://jupyter.org/)
+- [The Jupyter Notebook (Official Documentation)](https://jupyter-notebook.readthedocs.io/en/stable/)
+- [Jupyter Notebook Tips, Tricks, and Shortcuts](https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/) - A blog post with useful tips, tricks, and keyboard shortcuts to enhance your productivity in Jupyter Notebooks.
+- [Real Python Jupyter Notebook Tutorial](https://realpython.com/jupyter-notebook-introduction/) - A beginner-friendly tutorial that provides an introduction to Jupyter Notebooks, covering installation, notebook interface, running code, markdown cells, and data visualization.
+- [Jupyter Notebook Cheat Sheet](https://cheatography.com/sschaub/cheat-sheets/jupyter-notebook/) - A concise cheat sheet with commonly used commands and shortcuts for Jupyter Notebooks.
+
+### Jupyter Shortcut Keys
+
+- Shift + Enter: Run the current cell and move to the next one.
+- Ctrl + Enter: Run the current cell without moving.
+- A: Insert a new cell above.
+- B: Insert a new cell below.
