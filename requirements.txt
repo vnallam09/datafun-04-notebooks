@@ -61,7 +61,7 @@
 # Just update the list below and re-run the install command. 
 
 # ======================================================
-# VS CODE: Select Interpreter
+# Step D: VS CODE- Select Interpreter
 # ======================================================
 # VS Code needs our populated .venv to interpret our files correctly.
 # To set the VS Code Interpreter:
@@ -72,6 +72,22 @@
 #    Look for the local .venv option.
 # 5. Once selected, check the Python version displayed 
 #    in the bottom-left corner of the VS Code window in the status bar.
+
+# ======================================================
+# Step E: If Using Jupyter Notebook - Create and Select Kernel
+# ======================================================
+# 1. Create a kernel from the virtual environment:
+
+### Windows Commands (don't include the #):
+# py -m ipykernel install --user --name .venv --display-name "Python (.venv)"
+
+### Mac/Linux Commands (don't include the #):
+# python3 -m ipykernel install --user --name .venv --display-name "Python (.venv)"
+#
+# 2. Select the kernel for the notebook:
+#   - Open your notebook.
+#   - From the Command Palette, select `Notebook: Select Notebook Kernel`.
+#   - Choose the kernel named `Python (.venv)`.
 
 # ======================================================
 # ESSENTIAL TOOLS
