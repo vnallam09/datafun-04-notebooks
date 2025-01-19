@@ -262,7 +262,7 @@ Present your findings in a logical and engaging manner.
   - [ ] 5. Initial Data Distribution for Numerical Columns
   - [ ] 6. Initial Data Transformation and Feature Engineering
   - [ ] 7. Initial Visualizations
-  - [ ] 7. Initial Insights
+  - [ ] 8. Initial Insights
 - [ ] Notebook includes commentary as we go that tells a unique data story. 
 - [ ] Notebook includes unique insights into the dataset. 
 - [ ] Code and visuals are working, notebook is fully executed and on display in GitHub. 
