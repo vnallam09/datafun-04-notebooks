@@ -1,5 +1,5 @@
 '''
-Optional: This is just an experiment to see how close we can get with a script. 
+Optional: This is just to test key code with a script. 
 '''
 
 #####################################
