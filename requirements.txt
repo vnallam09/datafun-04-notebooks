@@ -103,6 +103,20 @@
 #    in the bottom-left corner of the VS Code window in the status bar.
 
 # ======================================================
+# STEP E: OPTIONAL: If Using Notebook, Select Kernel
+# ======================================================
+# To select a kernel (Python environment) for your notebook in Visual Studio Code, 
+# click on the Select Kernel name in the top-right corner of the notebook 
+# interface and choose the desired kernel from the dropdown menu. 
+# Follow any suggestions to install recommended extensions. 
+# Once installed, click "Select Kernel" / "Python Environments" and choose the 
+# recommended (.venv) option created for the project. 
+# This will create a new kernel for the notebook and allow you to run code
+# in the notebook using the packages installed in the virtual environment.
+# After installing any new packages, you may need to close all instances of VS Code
+# and restart completely to have your updated environment take effect. 
+
+# ======================================================
 # COMMON STANDARD LIBRARY MODULES (NO INSTALL REQUIRED)
 # ======================================================
 # These modules are built into Python and do NOT need to be installed.
